@@ -1,7 +1,11 @@
 # --- pipeline data & outputs (regenerated; not version-controlled) ---
+# Keep the results/ and logs/ dirs themselves (SLURM needs logs/ to exist
+# before a job starts) but ignore their contents.
 data/
-results/
-logs/
+results/*
+!results/.gitkeep
+logs/*
+!logs/.gitkeep
 
 # --- python ---
 __pycache__/

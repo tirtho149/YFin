@@ -1,8 +1,9 @@
 """Central configuration — every tunable lives here.
 
 A single :class:`Config` dataclass holds all paths, hyperparameters and run
-options. ``load_config()`` returns it; the project root can be overridden with
-the ``FINBENCH_ROOT`` environment variable (handy on a cluster).
+options. ``load_config()`` returns it; the project root defaults to the cluster
+path ``/work/mech-ai-scratch/tirtho/YFin`` and can be overridden with the
+``FINBENCH_ROOT`` environment variable (e.g. for local runs).
 """
 from __future__ import annotations
 
@@ -17,8 +18,11 @@ class Config:
     """All settings for the finbench pipeline."""
 
     # ---- project root (other directories are derived from it) ----------------
+    # Defaults to the cluster project path; override with FINBENCH_ROOT.
     root: Path = field(
-        default_factory=lambda: Path(os.environ.get("FINBENCH_ROOT", Path.cwd()))
+        default_factory=lambda: Path(
+            os.environ.get("FINBENCH_ROOT", "/work/mech-ai-scratch/tirtho/YFin")
+        )
     )
 
     # ---- data download ------------------------------------------------------

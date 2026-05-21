@@ -4,7 +4,7 @@
 # Requires Python 3.10 or 3.11 (PyTorch wheels; avoid 3.13+).
 # Usage:  bash slurm/setup_env.sh  [env_dir]
 set -euo pipefail
-cd "$(dirname "$0")/.."
+cd /work/mech-ai-scratch/tirtho/YFin
 
 ENV_DIR="${1:-$HOME/envs/finbench}"
 echo "creating virtualenv at: $ENV_DIR"

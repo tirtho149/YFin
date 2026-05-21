@@ -58,7 +58,7 @@ Runtime outputs (created automatically): `data/`, `results/`, `logs/`.
 ## Installation
 
 ```bash
-cd /path/to/YFIn
+cd /work/mech-ai-scratch/tirtho/YFin
 python3.11 -m venv .venv
 source .venv/bin/activate
 pip install -e .                 # installs finbench + all dependencies
@@ -103,7 +103,7 @@ Cluster compute nodes are usually firewalled, so the data download runs on a
 **1 — one-time environment setup** (login node):
 
 ```bash
-cd /path/to/YFIn
+cd /work/mech-ai-scratch/tirtho/YFin
 bash slurm/setup_env.sh                   # creates ~/envs/finbench
 source ~/envs/finbench/bin/activate
 ```
@@ -205,7 +205,9 @@ All knobs live in `finbench/config.py` (`Config` dataclass). Common tweaks:
 * `wf_n_folds` — walk-forward folds
 * `seq_len`, `*_batch_size`, `num_workers`
 
-Set `FINBENCH_ROOT` to relocate all data/results/logs.
+The project root defaults to `/work/mech-ai-scratch/tirtho/YFin` (the cluster
+path); set `FINBENCH_ROOT` to relocate all data/results/logs — e.g. for a local
+run, `export FINBENCH_ROOT=/path/to/your/checkout`.
 
 ## Notes
 

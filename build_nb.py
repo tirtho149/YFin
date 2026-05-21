@@ -3,6 +3,7 @@
 Stage 1 of the research ladder: pure-OHLC vs finance-informed feature comparison.
 """
 import json
+import os
 
 cells = []
 def md(src):   cells.append(("markdown", src))
@@ -1869,7 +1870,9 @@ for i, (ctype, src) in enumerate(cells, 1):
         cell["outputs"] = []
     nb["cells"].append(cell)
 
-with open("/Users/tirthoroy/Desktop/YFIn/DS2010_Final.ipynb", "w") as f:
+out_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                        "DS2010_Final.ipynb")
+with open(out_path, "w") as f:
     json.dump(nb, f, indent=1)
     f.write("\n")
 

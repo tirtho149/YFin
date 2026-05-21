@@ -4,12 +4,12 @@
 #
 # Downloading ~325 tickers takes roughly 5-10 minutes; cached CSVs are reused.
 set -euo pipefail
-cd "$(dirname "$0")/.."
+cd /work/mech-ai-scratch/tirtho/YFin
 
 # EDIT: activate the environment created by slurm/setup_env.sh
 # source "$HOME/envs/finbench/bin/activate"
 
-export FINBENCH_ROOT="$(pwd)"
+export FINBENCH_ROOT=/work/mech-ai-scratch/tirtho/YFin
 python scripts/01_download_data.py
 
 echo

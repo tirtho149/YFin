@@ -7,8 +7,9 @@
 #SBATCH --gres=gpu:a100:1
 #SBATCH --time=10:00:00
 #SBATCH --partition=nova
-#SBATCH --output=logs/finbench-%j.out
-#SBATCH --error=logs/finbench-%j.err
+#SBATCH --chdir=/work/mech-ai-scratch/tirtho/YFin
+#SBATCH --output=/work/mech-ai-scratch/tirtho/YFin/logs/finbench-%j.out
+#SBATCH --error=/work/mech-ai-scratch/tirtho/YFin/logs/finbench-%j.err
 #SBATCH --mail-user=tirtho@iastate.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 
@@ -23,7 +24,7 @@
 # just resubmit and it continues from the last completed model.
 # ===========================================================================
 set -euo pipefail
-cd "${SLURM_SUBMIT_DIR:-$(pwd)}"
+cd /work/mech-ai-scratch/tirtho/YFin
 mkdir -p logs results
 
 # --- environment -----------------------------------------------------------
@@ -63,7 +64,7 @@ export OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK:-8}"
 export MKL_NUM_THREADS="${SLURM_CPUS_PER_TASK:-8}"
 export NUMEXPR_NUM_THREADS="${SLURM_CPUS_PER_TASK:-8}"
 export PYTHONUNBUFFERED=1
-export FINBENCH_ROOT="$(pwd)"
+export FINBENCH_ROOT=/work/mech-ai-scratch/tirtho/YFin
 
 echo "====================================================================="
 echo "host=$(hostname)  job=${SLURM_JOB_ID:-NA}  cpus=${SLURM_CPUS_PER_TASK:-NA}"
