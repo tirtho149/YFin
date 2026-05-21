@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "finbench"
+version = "1.0.0"
+description = "Staged ML benchmark for stock close-price direction prediction"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy<2",
+    "pandas>=2.0",
+    "scipy>=1.10",
+    "scikit-learn>=1.3",
+    "xgboost>=2.0",
+    "torch>=2.2",
+    "matplotlib>=3.7",
+    "yfinance>=0.2.40",
+    "pyarrow>=14.0",
+    "joblib>=1.3",
+]
+
+[tool.setuptools.packages.find]
+include = ["finbench*"]

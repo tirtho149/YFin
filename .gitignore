@@ -1,0 +1,29 @@
+# --- pipeline data & outputs (regenerated; not version-controlled) ---
+data/
+results/
+logs/
+
+# --- python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# --- virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- notebooks ---
+.ipynb_checkpoints/
+
+# --- editors / OS ---
+.DS_Store
+.idea/
+.vscode/
+
+# --- Claude Code local config ---
+.claude/

@@ -1,0 +1,12 @@
+# finbench — finance ML direction-prediction benchmark
+# Pin numpy<2 so the torch 2.2.x binary (compiled against numpy 1.x) stays compatible.
+numpy<2
+pandas>=2.0
+scipy>=1.10
+scikit-learn>=1.3
+xgboost>=2.0
+torch>=2.2
+matplotlib>=3.7
+yfinance>=0.2.40
+pyarrow>=14.0
+joblib>=1.3
