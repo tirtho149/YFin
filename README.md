@@ -212,3 +212,4 @@ Set `FINBENCH_ROOT` to relocate all data/results/logs.
 * The original `DS2010_Final.ipynb` is kept for reference but is superseded by
   this package.
 * PyTorch 2.2.x needs `numpy<2` (pinned in `requirements.txt` / `pyproject.toml`).
+# YFin
