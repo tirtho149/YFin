@@ -15,10 +15,14 @@ except ImportError:                 # pragma: no cover
     HAS_XGB = False
 
 
-def _xgb_params(xgb_params: dict, device: str) -> dict:
-    """Copy of the XGBoost params with the runtime device injected."""
+def _xgb_params(xgb_params: dict, device) -> dict:
+    """Copy of the XGBoost params with the runtime device injected.
+
+    ``device`` may be a ``torch.device`` or a string; XGBoost wants a plain
+    string ("cuda" rides the GPU, "cpu" otherwise), so coerce it.
+    """
     params = dict(xgb_params)
-    params["device"] = device       # "cuda" rides the GPU, "cpu" otherwise
+    params["device"] = str(device)
     return params
 
 
