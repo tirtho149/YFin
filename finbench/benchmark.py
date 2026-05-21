@@ -47,12 +47,14 @@ class ResultsWriter:
         self.done: set = set()
         if self.csv_path.is_file():
             existing = pd.read_csv(self.csv_path)
-            self.rows = existing.to_dict("records")
+            # Drop stale error rows on load: they carry no 'done' info and the
+            # model is retried anyway, so keeping them would leave a duplicate
+            # error row next to the eventual success row.
+            self.rows = [r for r in existing.to_dict("records")
+                         if not _is_error_row(r)]
             for r in self.rows:
-                if not _is_error_row(r):
-                    self.done.add((r["feature_set"], r["model_name"], r["target"]))
-            logger.info("resuming — %d existing rows (%d completed)",
-                        len(self.rows), len(self.done))
+                self.done.add((r["feature_set"], r["model_name"], r["target"]))
+            logger.info("resuming — %d completed rows", len(self.done))
 
     def is_done(self, feature_set, model_name, target) -> bool:
         return (feature_set, model_name, target) in self.done

@@ -31,3 +31,10 @@ ENV/
 
 # --- Claude Code local config ---
 .claude/
+*.pt
+*.joblib
+*.npz
+results/checkpoints/
+*.pt
+*.joblib
+*.npz

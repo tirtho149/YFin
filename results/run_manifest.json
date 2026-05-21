@@ -1,0 +1,120 @@
+{
+  "started": "2026-05-21T02:07:10",
+  "hostname": "nova21-gpu-14",
+  "python": "3.11.11",
+  "device": "cuda",
+  "config": {
+    "root": "/work/mech-ai-scratch/tirtho/YFin",
+    "data_start_date": "2015-01-01",
+    "min_history_rows": 300,
+    "download_pause": 0.3,
+    "direction_threshold": 0.005,
+    "train_end": "2024-06-30",
+    "val_end": "2025-03-31",
+    "test_end": "2026-03-31",
+    "targets": [
+      "Direction",
+      "LogReturn_Next",
+      "Volatility_Next"
+    ],
+    "primary_target": "Direction",
+    "feature_sets": [
+      "ohlc",
+      "finance"
+    ],
+    "model_families": [
+      "classical",
+      "mlp",
+      "sequence",
+      "worldmodel"
+    ],
+    "batch_size": 4096,
+    "n_epochs": 20,
+    "learning_rate": 0.001,
+    "model_specs": {
+      "small": [
+        128,
+        64
+      ],
+      "medium": [
+        256,
+        128,
+        64
+      ]
+    },
+    "rf_params": {
+      "n_estimators": 300,
+      "max_depth": 16,
+      "min_samples_leaf": 20,
+      "n_jobs": -1,
+      "random_state": 42
+    },
+    "xgb_params": {
+      "n_estimators": 400,
+      "max_depth": 6,
+      "learning_rate": 0.05,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "tree_method": "hist",
+      "n_jobs": -1,
+      "random_state": 42
+    },
+    "ridge_params": {
+      "alpha": 1.0
+    },
+    "logreg_params": {
+      "C": 1.0,
+      "max_iter": 2000
+    },
+    "seq_len": 30,
+    "seq_epochs": 15,
+    "seq_batch_size": 2048,
+    "num_workers": 8,
+    "seq_specs": {
+      "LSTM": {
+        "kind": "lstm",
+        "hidden_size": 128,
+        "num_layers": 2,
+        "dropout": 0.2
+      },
+      "Transformer": {
+        "kind": "transformer",
+        "d_model": 128,
+        "nhead": 4,
+        "num_layers": 2,
+        "dropout": 0.2
+      }
+    },
+    "wm_latent_dim": 24,
+    "wm_hidden": 128,
+    "wm_epochs": 15,
+    "wm_beta": 0.5,
+    "wm_gamma": 1.0,
+    "wm_sup_weight": 5.0,
+    "wf_n_folds": 6,
+    "wf_min_train_frac": 0.4,
+    "seed": 42,
+    "save_checkpoints": true,
+    "save_predictions": true
+  },
+  "steps": {
+    "download": {
+      "status": "skipped",
+      "minutes": 0.0
+    },
+    "build_panels": {
+      "status": "ok",
+      "minutes": 0.01
+    },
+    "benchmark": {
+      "status": "ok",
+      "minutes": 62.23
+    },
+    "walkforward": {
+      "status": "ok",
+      "minutes": 0.82
+    }
+  },
+  "finished": "2026-05-21T03:10:14",
+  "total_minutes": 63.07
+}

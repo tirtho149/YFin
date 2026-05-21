@@ -1,0 +1,38 @@
+======================================================================
+finbench — close-price DIRECTION prediction benchmark
+======================================================================
+
+### Direction   [metric: accuracy, higher better]
+  BEST OVERALL : +0.4089  (finance/classical/RandomForest)
+  by model type:
+    classical   +0.4089  (finance/RandomForest)
+    mlp         +0.3997  (finance/MLP_small)
+    sequence    +0.3959  (ohlc/Transformer)
+    worldmodel  +0.4069  (finance/WorldModel)
+  by feature set:
+    ohlc        +0.4004  (worldmodel/WorldModel)
+    finance     +0.4089  (classical/RandomForest)
+
+### LogReturn_Next   [metric: return_ic, higher better]
+  BEST OVERALL : +0.0198  (finance/mlp/MLP_medium)
+  by model type:
+    classical   +0.0190  (ohlc/Ridge)
+    mlp         +0.0198  (finance/MLP_medium)
+    sequence    +0.0159  (ohlc/Transformer)
+    worldmodel  +0.0065  (finance/WorldModel)
+  by feature set:
+    ohlc        +0.0190  (classical/Ridge)
+    finance     +0.0198  (mlp/MLP_medium)
+
+### Volatility_Next   [metric: mse, lower better]
+  BEST OVERALL : +0.0001  (finance/sequence/LSTM)
+  by model type:
+    classical   +0.0001  (finance/XGBoost)
+    mlp         +0.0001  (finance/MLP_medium)
+    sequence    +0.0001  (finance/LSTM)
+    worldmodel  +0.0001  (finance/WorldModel)
+  by feature set:
+    ohlc        +0.0001  (sequence/LSTM)
+    finance     +0.0001  (sequence/LSTM)
+
+total result rows: 48   (errors: 0)

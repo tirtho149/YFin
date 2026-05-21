@@ -1,0 +1,12 @@
+======================================================================
+finbench — WALK-FORWARD & REGIME EVALUATION (XGBoost / Direction)
+======================================================================
+
+WALK-FORWARD SUMMARY  (mean +/- std across folds)
+  ohlc       acc=0.384+/-0.014  bal_acc=0.388  mcc=+0.081  f1=0.349  brier=0.652
+  finance    acc=0.392+/-0.011  bal_acc=0.393  mcc=+0.084  f1=0.375  brier=0.652
+
+REGIME-SPLIT TESTING  (pooled across folds & feature sets)
+  bull       n=  500720  acc=0.390  bal_acc=0.392  mcc=+0.088  f1=0.368
+  sideways   n=  280659  acc=0.390  bal_acc=0.382  mcc=+0.072  f1=0.362
+  volatile   n=  250218  acc=0.383  bal_acc=0.382  mcc=+0.059  f1=0.352
